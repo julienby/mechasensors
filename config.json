@@ -54,7 +54,7 @@
       "indoor": true
     },
     "measurement": {
-      "frequency": "1s",
+      "frequency": "1Hz",
       "mode": "slave | master"
     },
     "data": {
