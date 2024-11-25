@@ -2,7 +2,7 @@
   "nodeController": {
     "id": "{host}_{datasetId}",
     "name": "RPI Pil 92",
-    "description": "RPI Utilisé pour le terrain",
+    "description": "RPI XYZ",
     "host": "pil-92",
     "dataset": "TERRAIN003",
     "dataset_id": "{host}_{datasetId}",
@@ -152,7 +152,7 @@
           "portAdress": "/dev/ttyACM0",
           "baudrate": 9600
         },
-        "measurementFrequency": "1s",
+        "measurementFrequency": "1Hz",
         "measurementMode": "ondemand",
         "software": {
           "name": "SensorController",
@@ -229,31 +229,15 @@
             }
           },
           {
-            "id": "sonde_ph_temp_press",
+            "id": "sonde_ph",
             "description": "",
-            "type": "groupe",
             "fabricant": "",
-            "capteurs": {
-              "ph": {
-                "name": "ph",
-                "unite": "ph",
-                "format": "int",
-                "range": "[0;1024]",
-                "read_frequency": "1s"
-              },
-              "temp": {
-                "name": "temp",
-                "unite": "c°",
-                "format": "dec",
-                "range": "[-20;40]",
-                "read_frequency": "1s"
-              },
-              "press": {
-                "unite": "P°",
-                "format": "dec",
-                "range": "[0;100]",
-                "read_frequency": "1s"
-              }
+            "measurement": {
+              "type": "valvometrie",
+              "unite": "Gauss",
+              "format": "int",
+              "range": "[0-1024]",
+              "read_frequency": "1s"
             },
             "physicaladress": {
               "type": "analog",
