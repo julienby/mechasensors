@@ -4,7 +4,7 @@
     "name": "RPI Pil 92",
     "description": "RPI Utilisé pour le terrain",
     "host": "pil-92",
-    "dataset": "TERRAIN002",
+    "dataset": "TERRAIN003",
     "dataset_id": "{host}_{datasetId}",
     "mode": "debug|production",
     "status": "active",
@@ -173,7 +173,7 @@
                 "minValue": "0",
                 "maxValue": "1024"
               },
-              "read_frequency": "1s"
+              "read_frequency": "1Hz"
             },
             "physicaladress": {
               "type": "analog",
