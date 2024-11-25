@@ -1,11 +1,10 @@
 {
   "nodeController": {
-    "id": "{host}_{datasetId}",
+    "id": "{host}_{dataset_id}",
     "name": "RPI XYZ",
     "description": "Description RPI XYZ",
     "host": "hostname",
-    "dataset": "TERRAIN001",
-    "dataset_id": "{host}_{datasetId}",
+    "dataset_id": "TERRAIN001",
     "mode": "debug|production",
     "status": "active",
     "communication": {
@@ -17,9 +16,9 @@
         "api_url": "http://localhost:8080/control"
       },
       "ping": {
-        "url": "https://status.server.com/check",
+        "purl": "https://status.server.com/check",
         "crontab": "/5 * * * *",
-        "cmd": "curl {ping.url}"
+        "cmd": "curl {purl}"
       }
     },
     "specs": {
