@@ -60,11 +60,11 @@
     "data": {
       "remote": [
         {
-          "id": "icagingdata.databeam.eu",
+          "id": "username@serveur.com",
           "protocol": "rsync",
           "remote_path": "/home/icaging/icaging-litis/{hostname}",
           "ssh": {
-            "user_host": "icaging@icagingdata.databeam.eu",
+            "user_host": "username@serveur.com",
             "command": "rsync -av --include='*_{dataset_id}_*.csv' {local_data_path}/ {user_host}:{remote_path}",
             "schedule": "*/15 * * * *"
           }
