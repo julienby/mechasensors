@@ -4,7 +4,7 @@
     "name": "RPI Pil 92",
     "description": "RPI Utilisé pour le terrain",
     "host": "pil-92",
-    "dataset": "TERRAIN001",
+    "dataset": "TERRAIN002",
     "dataset_id": "{host}_{datasetId}",
     "mode": "debug|production",
     "status": "active",
