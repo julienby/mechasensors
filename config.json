@@ -230,14 +230,14 @@
           },
           {
             "id": "sonde_ph",
-            "description": "",
-            "fabricant": "",
+            "description": "Sonde Ph",
+            "fabricant": "ABC",
             "measurement": {
-              "type": "valvometrie",
-              "unite": "Gauss",
+              "type": "Ph",
+              "unite": "ph",
               "format": "int",
-              "range": "[0-1024]",
-              "read_frequency": "1s"
+              "range": "[0-14]",
+              "read_frequency": "1Hz"
             },
             "physicaladress": {
               "type": "analog",
