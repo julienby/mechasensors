@@ -1,5 +1,5 @@
 {
-  "nodeController": {
+  "node": {
     "id": "{host}_{dataset_id}",
     "name": "RPI XYZ",
     "description": "Description RPI XYZ",
@@ -16,16 +16,17 @@
         "api_url": "http://localhost:8080/control"
       },
       "ping": {
-        "purl": "https://status.server.com/check",
+        "url": "https://status.server.com/check",
         "crontab": "/5 * * * *",
-        "cmd": "curl {purl}"
+        "cmd": "curl {node.communication.ping.url}"
       }
     },
     "specs": {
       "software": {
         "name": "NodeControllerClient",
         "version": "1.2.3",
-        "git": "https://github.com/username/NodeControllerClient"
+        "git": "https://github.com/username/NodeControllerClient",
+        "long_name": "{node.specs.software.name} - {node.specs.software.version}"
       },
       "hardware": {
         "name": "Raspberry Pi",

@@ -7,6 +7,24 @@ class Config:
         self.file_path = file_path
         self._data = self._load_config()
 
+    def _resolve_nested_value(self, config, path):
+        """Resolve nested path in the configuration."""
+        parts = path.split('.')
+        current = config
+
+        for part in parts:
+            if isinstance(current, dict):
+                current = current.get(part)
+            elif isinstance(current, SimpleNamespace):
+                current = getattr(current, part, None)
+            else:
+                return None
+
+            if current is None:
+                return None
+
+        return current
+
     def _load_config(self):
         """Load JSON and replace placeholders recursively."""
         with open(self.file_path, 'r') as f:
@@ -15,24 +33,19 @@ class Config:
         def replace_placeholders(obj, root_config):
             if isinstance(obj, dict):
                 return {k: replace_placeholders(v, root_config) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [replace_placeholders(item, root_config) for item in obj]
             elif isinstance(obj, str):
-                # Replace placeholders with values from anywhere in the config
                 def replacer(match):
-                    key = match.group(1)
-                    # Search recursively through the entire configuration
-                    def find_key_value(config, target_key):
-                        if isinstance(config, dict):
-                            if target_key in config:
-                                return str(config[target_key])
-                            for value in config.values():
-                                result = find_key_value(value, target_key)
-                                if result is not None:
-                                    return result
-                        return None
+                    nested_key = match.group(1)
+                    # Special case for top-level nodeController
+                    if not '.' in nested_key:
+                        nested_key = f'nodeController.{nested_key}'
 
-                    return find_key_value(root_config, key) or match.group(0)
+                    resolved_value = self._resolve_nested_value(root_config, nested_key)
+                    return str(resolved_value) if resolved_value is not None else match.group(0)
 
-                return re.sub(r'\{(\w+)\}', replacer, obj)
+                return re.sub(r'\{([^}]+)\}', replacer, obj)
             return obj
 
         # Apply recursive placeholder replacement
