@@ -1,10 +1,10 @@
 {
   "nodeController": {
     "id": "{host}_{datasetId}",
-    "name": "RPI Pil 92",
-    "description": "RPI XYZ",
-    "host": "pil-92",
-    "dataset": "TERRAIN003",
+    "name": "RPI XYZ",
+    "description": "Description RPI XYZ",
+    "host": "hostname",
+    "dataset": "TERRAIN001",
     "dataset_id": "{host}_{datasetId}",
     "mode": "debug|production",
     "status": "active",
