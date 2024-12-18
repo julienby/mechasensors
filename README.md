@@ -9,13 +9,15 @@ Ce fichier JSON définit la configuration des capteurs connectés, pilotés via 
 ## Table des matières
 - [Structure du fichier JSON](#structure-du-fichier-json)
 - [Description des Sections](#description-des-sections)
-  - [NodeController](#nodecontroller)
+  - [Node](#node)
   - [Communication](#communication)
   - [Location](#location)
   - [Measurement](#measurement)
   - [Data](#data)
-  - [Triggers](#triggers)
-  - [SensorCards](#sensorcards)
+  - [Trigger](#triggers)
+  - [SensorCard](#sensorcard)
+  - [SensorGroup](#sensorgroup)
+  - [Sensor](#sensor)
 - [Exemple de Fichier JSON](#exemple-de-fichier-json)
 
 ---
@@ -40,14 +42,14 @@ Ce fichier JSON définit la configuration des capteurs connectés, pilotés via 
 
 ## Description des Sections
 
-### NodeController
-- **id** : Identifiant unique du contrôleur. Format `{host}_{datasetId}`.
+### Node
+- **id** : Identifiant unique du contrôleur. Format `{host}_{dataset_id}`.
 - **name** : Nom du contrôleur.
 - **description** : Description du contrôleur.
 - **host** : Nom du système hôte.
-- **dataset** : Identifiant du jeu de données.
+- **dataset_id** : Identifiant du jeu de données.
 - **mode** : Mode de fonctionnement (`debug` ou `production`).
-- **status** : État actuel du contrôleur (`active` ou `inactive`).
+- **status** : État actuel du contrôleur (`on` ou `off`).
 
 ---
 
@@ -82,7 +84,7 @@ Ce fichier JSON définit la configuration des capteurs connectés, pilotés via 
 ---
 
 ### Measurement
-- **frequency** : Fréquence de mesure (ex. `1s`).
+- **period** : Periode de mesure (ex. `1s`).
 - **mode** : Mode de fonctionnement (`slave` ou `master`).
 
 ---
@@ -100,7 +102,7 @@ Ce fichier JSON définit la configuration des capteurs connectés, pilotés via 
 
 ---
 
-### Triggers
+### Trigger
 Déclencheurs d'actions en fonction des conditions :
 - **condition** : Condition qui déclenche l'action.
   - **type** : Type de condition (ex. `battery_level`, `sensor_value`, `scheduled`).
@@ -112,8 +114,8 @@ Déclencheurs d'actions en fonction des conditions :
 
 ---
 
-### SensorCards
-Liste des cartes et capteurs connectés :
+### SensorCard
+Carte connecté au Pi :
 - **id** : Identifiant unique de la carte.
 - **name** : Nom de la carte.
 - **description** : Description de la carte.
@@ -131,6 +133,9 @@ Liste des cartes et capteurs connectés :
     - **unite** : Unité de la mesure.
     - **format** : Format des données (`int`, `float`).
     - **range** : Plage de mesure.
+
+  ### SensorCards
+  List of sensorCard
 
 ---
 

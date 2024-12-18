@@ -1,12 +1,12 @@
 {
   "node": {
-    "id": "{host}_{dataset_id}",
+    "id": "{node.host}_{node.dataset_id}",
     "name": "RPI XYZ",
     "description": "Description RPI XYZ",
     "host": "hostname",
     "dataset_id": "TERRAIN001",
-    "mode": "debug|production",
-    "status": "active",
+    "mode": "debug production",
+    "status": "on off",
     "communication": {
       "cloud": {
         "api_url": "https://api.cloudservice.com/v1/control",
@@ -54,7 +54,7 @@
       "indoor": true
     },
     "measurement": {
-      "frequency": "1Hz",
+      "period": "1s",
       "mode": "slave | master"
     },
     "data": {
@@ -147,12 +147,13 @@
         "description": "A sensor measuring ambient temperature",
         "manufacturer": "Arduino",
         "model": "Mega V2",
-        "portConnected": {
-          "portType": "usb",
-          "portAdress": "/dev/ttyACM0",
-          "baudrate": 9600
+        "port": {
+          "type": "usb",
+          "adress": "/dev/ttyACM0",
+          "baudrate": 9600,
+          "status": "on"
         },
-        "measurementFrequency": "1Hz",
+        "measurementPeriod": "1s",
         "measurementMode": "ondemand",
         "software": {
           "name": "SensorController",
@@ -184,6 +185,7 @@
             "id": "moule2",
             "description": "",
             "fabricant": "",
+            "status": "on/off",
             "measurement": {
               "type": "valvometrie",
               "unite": "Gauss",
@@ -248,7 +250,7 @@
         "SensorGroups": [
           {
             "id": "sensor_ph_pression_temp1",
-            "marque": "",
+            "marque": "marque capteur",
             "actif": "true",
             "descripton": "",
             "serie": "",
